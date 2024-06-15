@@ -1,0 +1,23 @@
+interface g0/0
+no shutdown
+ip address dhcp
+exit
+interface g3/0
+no shutdown
+ip address 192.168.1.254 255.255.255.0
+exit
+do show ip interface brief
+
+------------------
+DHCP Configuration
+------------------
+ip dhcp pool local
+network 192.168.1.0 /24
+default-router 192.168.1.254
+dns-server 192.168.1.254
+exit
+ip route 192.168.1.0 255.255.255.0 g0/0
+ip route 0.0.0.0 0.0.0.0 g0/0
+ip name-server 8.8.8.8
+ip dns server
+

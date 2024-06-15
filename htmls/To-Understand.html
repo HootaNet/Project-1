@@ -1,0 +1,123 @@
+<html>
+    <style>
+        body{
+            text-align: left;
+            font-family: arial;
+        }
+    </style>
+    <body>
+        <header>
+            <h1>In this document you will find explaining to all the topics that are covered 
+                in the project
+            </h1>
+        </header>
+        <hr>
+        <h3>What is GNS3</h3>
+        <p>
+            GNS3 is a software that emulate real Networks Operating Systems into a friendly environment, 
+            It is used for setting up network devices such as Routers, Switches, Firewalls, Virtual PCs, and so on. <br>
+            The network devices will be running on a virtual server, the network devices will run as IOS, which is 
+            Interconnection Operating System running on the server and GNS3 will be like a simulator and will give you 
+            access to the CLI (Command Line Interface) of these network devices by putty or any remote connection softwares. <br>
+        </p>
+        <hr>
+        <h3>What is DNS</h3>
+        <p>
+            It is short for Domain Name System, you make use of DNS every day; when you want to browse the internet 
+            let's say youtube, and you type on the browser youtube.com, actually Youtube web server doesn't understand the name 
+            youtube.com, when you communicate with youtube you communicate with it with IP address, so let's say that 
+            IP addresses is the language of the web server (it is actually how you communicate with anything in any network), and Youtube.com is 
+            our human language, we could type the address of youtube to connect to it, but you can't remember every IP address of all 
+            of your favorite websites. <br>
+            So DNS will translate Youtube.com into IP address like 77.12.66.20 so Youtube web server could understand. A DNS server is responsible of 
+            resolving any DNS message which is called query and it's a message like this:"Hey DNS server what is the IP address of 
+            Youbue.com?", and the DNS server will have a table that consists of records, there are (A Records, which for IPv4) and (AAAA Records, which 
+            are for IPv6), and each record has an IP address for particular name, and when the DNS server is given a name 
+            it will reply with the IP address for that name from it's records table.<br>
+        </p>
+        <hr>
+        <h3>What is DHCP</h3>
+        <p>
+            In network prespective we refer to DNS and DHCP as IP services, they are services that are literaly optional but required!, 
+            that might seem stupid but the idea is you can not have them, but you must have them in your network. Let me explain, 
+            you as a client you want to browse the Internet or any network you must have two addresses, a physical MAC address that 
+            is burned with the device it's unique globally and can't be changed (shouldn't be changed), and IP address is what you must have 
+            in order to be able to communicate with any other node or client connected to your network or the Internet, So let's say you are 
+            in a caffe you need to connect to the Wireless Access Point (WI-FI) in normal you will be concerned about the Authentication Key (PSK), 
+            or any authentication method, but without DHCP you have to ask for the IP address and assigned it yourself, it's not hard but, if you went home 
+            and wanted to connect to another network you again need to know what IP address is available what is the DNS server address, the default gateway,
+            and even then the IP address might be used by someone else. <br> 
+            And here comes the best IP sersvice ever!, DHCP is short for Domain Host Configuration Protocol, and it is the server 
+            that gives you all the address information, such as what address you should use, the gateway of your network and even the DNS server 
+            address, The IP addresses will be configured on a pool, this pool will contain a range of IP addresses for hosts to get so 
+            they will be able to communicate with others in the network, and the gateway and DNS server address will be 
+            consistent for all hosts.<br>
+            There is much more information about DNS and DHCP if you are intersted you can do a google search or seach on youtube.
+        </p>
+        <hr>
+        <br>
+        <h3>Virtual Machines and Virtualization</h3>
+        <p>
+            Virtualization is a feature that let you run actual Machines on your physical Machine, they aren't actual machines they 
+            are virtual but they will take allocation of actual space and use from your memory and CPU, so they are virtual machines 
+            with Operating Systems run over the Host Operating System which is the actual PC.<br>
+            The Operating System Kali Linux is Linux distrobution made by Offensive Security and it's made for penetration testing, 
+            with a strong penetration tools. <br>
+            Windows is an Operating System which is made for personal uses and it's the most used OS in now days; because it is easy to 
+            use and have security features.
+        </p>
+        <hr>
+        <br>
+        <h3>ARP / ARP Spoofing</h3>
+        <p>
+            ARP is short for Address Resolution Protocol, and it is the protocol that carry the IP address of 
+            a MAC address on layer 2, when you want to send traffic in your network the traffic will be tagged 
+            with your MAC address so you actually communicate with others with your MAC address, but to reach others 
+            you need to have IP address so ARP is a protocol that gives you the MAC address of an IP address and 
+            it keeps this information in an ARP table or ARP cache; so when you want to  communicate to every 
+            one it will look at the ARP table and if it didn't find the address, it will send a request message saying:"
+            what MAC address has this IP address" and the device with that IP address will reply back with it's 
+            MAC address.<br>
+            ARP Spoofing (ARP Poisonning) is when you poison the ARP table, by sending a gratiutous ARP message and what that is, 
+            you basically send an ARP reply message without receiving an ARP request message, so let's say PC1 want to 
+            communicate with PC2 PC1 has IP address 10.0.0.1, and PC2 has IP address 10.0.0.2, so PC1 will ask PC2 
+            what is your MAC address and PC2 will respond my MAC is PC2M.AC00.0000 and PC1 will add PC2 MAC address to it's 
+            table and PC2 will do the same after sending the reply, after the ARP table is updated for PC1 and PC2, 
+            an attacker will come and send a message to PC1 saying:"PC2 MAC address is ATTA.CKER.MAC0" which is the attacker MAC 
+            address and PC1 will change the MAC address of PC2 to the attacker's MAC address lined up with PC2 IP address.<br>
+            So now any time PC1 want to send a message to PC2 10.0.0.2, the message will come to the attacker which PC1 thinks it is PC2 
+            and the attacker can do anything with the messages, sniff information, change the information, crack some passwords it can 
+            do anything, even decide wether or not it will forward the traffice to the destination.<br>
+        </p>
+        <hr>
+        <br>
+        <h3>DNS Spoofing</h3>
+        <p>
+            DNS spoofing is when an attacker wait for the victim to send a DNS query message and reply to it 
+            with a resolving of another IP address not the IP address the victim was hoping for, so let's say PC1 
+            want to access facebook.com before communicating with the gateway to access the website it will ask for 
+            the IP address of the name facebook.com, and it will do that by sending a DNS query message which says:"
+            hey DNS server, what is the IP address of facebook.com", and now it sent the message, so here comes the attacker 
+            and intercepts the message, so the message don't go to the DNS server, and the attacker will say to PC1:"
+            Hey PC1, here is your DNS server, the IP address of facebook.com is 192.168.1.3" and that is not the IP address 
+            of facebook.com, that IP address can anything the attacker want; a malicious web page, a banner graber, a tracker 
+            phishing web page or anythin, so after PC1 sent the request message and the attacker responded to him 
+            the victim will go to the IP address 192.168.1.3 instead of the actuall IP address of facebook.com.<br>
+            This is common in phishing attacks which the attacker creates a landing page that looks like the desired web page by 
+            the victim so the victim will think he is in the right web page, and it can be a facebook phishing web page 
+            and when the victim tries to log in, all the credintials will go to the attacker.<br>
+        </p>
+        <hr>
+        <br>
+        <p>
+            Sorry if I didn't explain these topics clearly, I tried to explain them as strongly as possible based 
+            on my understanding of the topics, and I'm not an expert myself, and certainly not an expert in explaining stuff, 
+            you can find much better explaining on the internet, and I just hope you enjoyed this Document!.<br>
+        </p>
+        <hr>
+        <p>
+            Best wishes: Mahmoud Omar<br>
+            @HootaNet
+        </p>
+    </body>
+</html>
