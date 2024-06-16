@@ -1,7 +1,7 @@
 # Project Title
 
 ## Overview
-This project demonstrates how to connect a GNS3 router with virtual machines and perform a MITM attack.
+In this Project I've added a vIOS Router on GNS3 and connected it to my virtual machines on VirtualBox and performed a MITM attack.
 
 ## Project Structure
 - **Screenshots**: Contains images of the project setup and results.
