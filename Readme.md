@@ -12,6 +12,6 @@ This project demonstrates how to connect a GNS3 router with virtual machines and
 To view the HTML documentation locally, clone the repository and open `index.html` in a web browser.
 
 ```sh
-git clone https://github.com/username/repository.git
+git clone https://github.com/HootaNet/Project-1.git
 cd repository
 open index.html
